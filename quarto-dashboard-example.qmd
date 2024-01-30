@@ -1,0 +1,181 @@
+---
+title: Super cool idea for tinyshiny replacement
+subtitle: A one off html embed you do not have to maintain from release to release
+format: dashboard
+layout: custom
+---
+
+
+```{r}
+#| output: false
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(plotly) 
+library(downloadthis)
+
+
+data = read_csv("example-data.csv")  
+
+nat_table <-  data %>% 
+  filter(geographic_level == "National" & time_period == "202122") %>% 
+  select(school_type, perm_excl, perm_excl_rate, suspension, susp_rate)
+
+la_data <- data %>% 
+  filter(geographic_level == "Local authority") %>% select(time_period, la_name, school_type, perm_excl_rate, susp_rate) %>% 
+  group_by(la_name) %>% 
+  pivot_wider(names_from = time_period,values_from=c(perm_excl_rate,susp_rate))
+
+```
+
+
+::: {.panel-tabset}
+
+## Example tab 1
+
+
+::: {layout="[ [2,3], [1] ]"}
+
+```{r}
+  
+knitr::kable(nat_table)
+
+```
+
+
+```{r}
+#| fig-width: 10
+#| fig-height: 8
+
+nat_table %>%
+  plot_ly(
+    type = 'bar',
+    x = ~school_type,
+    y = ~perm_excl_rate
+  ) %>% config(displayModeBar = F)
+    
+```
+
+
+
+:::
+
+## Example tab 2
+
+
+
+```{r}
+#a function to set  drop down options for number of filter categories
+
+genDropdown <- function(NameList) {
+    outlist <- list(list(
+      method = "restyle",
+      args=list("transforms[0].value", NameList[1]),
+      label = NameList[1]
+    ))
+
+    for(i in 2:length(NameList)) {
+       item <- list(list(
+        method = "restyle",
+        args=list("transforms[0].value", NameList[i]),
+        label = NameList[i]
+        ))
+       outlist <- c(outlist,item)
+    }
+
+    return(outlist)
+  }
+
+
+#plot output
+la_data %>%
+  plot_ly(
+    type = 'scatter', 
+    x = ~susp_rate_202021, 
+    y = ~susp_rate_202122,
+    text = ~la_data$la_name,
+    hoverinfo = 'text',
+    mode = 'markers', 
+    transforms = list(
+      list(
+        type = 'filter',
+        target = ~school_type,
+        operation = '=',
+        value = unique(la_data$school_type)[1]
+      )
+  )) %>% layout(
+    updatemenus = list(
+      list(
+        type = 'dropdown',
+        active = 0,
+        buttons = genDropdown(unique(la_data$school_type)) # this does it via generic function, commented bit below shows longer way
+        # buttons = list(
+        #   list(method = "restyle",
+        #        args = list("transforms[0].value", unique(la_data$school_type)[1]),
+        #        label = unique(la_data$school_type)[1]),
+        #   list(method = "restyle",
+        #        args = list("transforms[0].value", unique(la_data$school_type)[2]),
+        #        label = unique(la_data$school_type)[2]),
+        #   list(method = "restyle",
+        #        args = list("transforms[0].value", unique(la_data$school_type)[3]),
+        #        label = unique(la_data$school_type)[3]),
+        #   list(method = "restyle",
+        #        args = list("transforms[0].value", unique(la_data$school_type)[4]),
+        #        label = unique(la_data$school_type)[4])
+        # )
+    )
+  )
+  ) %>% 
+  config(displayModeBar = F)
+
+# Note there's 12 values ignored, I assume because of missing or invalid data
+```
+
+## Example tab 3
+
+You can do data downloads too, though whenever I include them it breaks the plotly formatting for some reason
+
+```{r}
+#| output: false
+
+la_data %>%
+  download_this(
+    output_name = "la_year_on_year_comparison",
+    output_extension = ".csv",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save",
+    csv2 = FALSE
+  )
+
+```
+  
+```{r}
+#| output: false
+
+nat_table %>%
+  download_this(
+    output_name = "la_year_on_year_comparison",
+    output_extension = ".csv",
+    button_label = "Download data",
+    button_type = "warning",
+    has_icon = TRUE,
+    icon = "fa fa-save",
+    csv2 = FALSE
+  )
+
+```
+
+
+
+
+
+<details>
+<summary>You can do details components too</summary>
+contents
+</details>
+
+:::
+

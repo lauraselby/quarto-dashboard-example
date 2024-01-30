@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Super cool idea for tinyshiny replacement</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="quarto-dashboard-example_files/libs/clipboard/clipboard.min.js"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-html/quarto.js"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-html/popper.min.js"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-html/anchor.min.js"></script>
+<link href="quarto-dashboard-example_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="quarto-dashboard-example_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="quarto-dashboard-example_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="quarto-dashboard-example_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="quarto-dashboard-example_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="quarto-dashboard-example_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-dashboard/stickythead.js"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="quarto-dashboard-example_files/libs/quarto-dashboard/components.js"></script>
+<link href="quarto-dashboard-example_files/libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<script src="quarto-dashboard-example_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="quarto-dashboard-example_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="quarto-dashboard-example_files/libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="quarto-dashboard-example_files/libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="quarto-dashboard-example_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="quarto-dashboard-example_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="quarto-dashboard-example_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="quarto-dashboard-example_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-fill fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Super cool idea for tinyshiny replacement</a></div>
+        <div class="navbar-subtitle">A one off html embed you do not have to maintain from release to release</div>
+        
+      </div>
+    </div>
+</div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill">  
+
+<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="panel-tabset html-fill-item html-fill-container">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Example tab 1</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Example tab 2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Example tab 3</a></li></ul>
+<div class="tab-content html-fill-item html-fill-container">
+<div id="tabset-1-1" class="tab-pane active html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+
+</div>
+<div class="quarto-layout-panel html-fill-item html-fill-container" data-layout="[ [2,3], [1] ]">
+<div class="quarto-layout-row html-fill-item html-fill-container">
+<div class="cell quarto-layout-cell html-fill-item html-fill-container" style="flex-basis: 40.0%;justify-content: center;">
+<div class="cell-output-display html-fill-item html-fill-container">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 14%">
+<col style="width: 21%">
+<col style="width: 15%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">school_type</th>
+<th style="text-align: right;">perm_excl</th>
+<th style="text-align: right;">perm_excl_rate</th>
+<th style="text-align: right;">suspension</th>
+<th style="text-align: right;">susp_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Special</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">0.05433</td>
+<td style="text-align: right;">13957</td>
+<td style="text-align: right;">9.59891</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">State-funded primary</td>
+<td style="text-align: right;">758</td>
+<td style="text-align: right;">0.01628</td>
+<td style="text-align: right;">66203</td>
+<td style="text-align: right;">1.42204</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">State-funded secondary</td>
+<td style="text-align: right;">5658</td>
+<td style="text-align: right;">0.15860</td>
+<td style="text-align: right;">498120</td>
+<td style="text-align: right;">13.96310</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Total</td>
+<td style="text-align: right;">6495</td>
+<td style="text-align: right;">0.07761</td>
+<td style="text-align: right;">578280</td>
+<td style="text-align: right;">6.91037</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell quarto-layout-cell html-fill-item html-fill-container" style="flex-basis: 60.0%;justify-content: flex-start;">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-1118a33bdd14eb961e44" style="width:100%;height:520px;"></div>
+<script type="application/json" data-for="htmlwidget-1118a33bdd14eb961e44">{"x":{"visdat":{"f50dc55e2e":["function () ","plotlyVisDat"]},"cur_data":"f50dc55e2e","attrs":{"f50dc55e2e":{"x":{},"y":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"school_type","type":"category","categoryorder":"array","categoryarray":["Special","State-funded primary","State-funded secondary","Total"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"perm_excl_rate"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":["Special","State-funded primary","State-funded secondary","Total"],"y":[0.054330000000000003,0.016279999999999999,0.15859999999999999,0.077609999999999998],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div id="tabset-1-2" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-82924e3cf0eea88e0f90" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-82924e3cf0eea88e0f90">{"x":{"visdat":{"f5019292c12":["function () ","plotlyVisDat"]},"cur_data":"f5019292c12","attrs":{"f5019292c12":{"x":{},"y":{},"text":{},"hoverinfo":"text","mode":"markers","transforms":[{"type":"filter","target":{},"operation":"=","value":"State-funded primary"}],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"updatemenus":[{"type":"dropdown","active":0,"buttons":[{"method":"restyle","args":["transforms[0].value","State-funded primary"],"label":"State-funded primary"},{"method":"restyle","args":["transforms[0].value","Special"],"label":"Special"},{"method":"restyle","args":["transforms[0].value","State-funded secondary"],"label":"State-funded secondary"},{"method":"restyle","args":["transforms[0].value","Total"],"label":"Total"}]}],"xaxis":{"domain":[0,1],"automargin":true,"title":"susp_rate_202021"},"yaxis":{"domain":[0,1],"automargin":true,"title":"susp_rate_202122"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[1.75369,15.69966,1.2387999999999999,16.10717,7.3915899999999999,0.95864000000000005,7.3240600000000002,0.51680000000000004,0.80393000000000003,4.9339199999999996,4.8164999999999996,1.0375700000000001,4.5345399999999998,1.00223,4.4236599999999999,13.167149999999999,7.4315499999999997,10.674160000000001,0.77941000000000005,3.5620799999999999,7.31203,0.94152999999999998,5.2392000000000003,3.4332600000000002,0,9,1.00145,4.7977600000000002,4.9437100000000003,1.9435800000000001,10.567690000000001,1.3406,7.4654999999999996,2.15178,12.26994,6.0521200000000004,3.23645,0.24038000000000001,4.0011799999999997,0,0.59367000000000003,5.3384999999999998,6.4870700000000001,5.6249700000000002,0.60358999999999996,3.4646400000000002,1.9964900000000001,3.03512,0.47215000000000001,2.3232699999999999,1.0452999999999999,0.86251999999999995,5.2816200000000002,0,6.9818300000000004,8.8514800000000005,4.5558800000000002,0.70093000000000005,4.0043899999999999,4.3465100000000003,8.6956500000000005,1.0692900000000001,0.64022999999999997,2.4110299999999998,3.9531499999999999,0.32679999999999998,8.9882500000000007,6.3805199999999997,1.3186800000000001,1.2819400000000001,6.0354799999999997,5.1226700000000003,1.5114099999999999,0.12285,0.58872000000000002,3.7129599999999998,4.1129100000000003,9.5712200000000003,0.67642000000000002,0.60402999999999996,1.9283699999999999,5.3887299999999998,0,0.10514999999999999,3.6315599999999999,0.63941999999999999,18.061669999999999,12.96804,7.8454800000000002,4.17746,1.05986,5.23001,14.329739999999999,6.3558399999999997,1.8918900000000001,12.05546,1.1793800000000001,2.5599500000000002,6.0055899999999998,10.17442,3.44285,17.283950000000001,1.1985399999999999,4.9199900000000003,6.0902000000000003,0.85685,2.9807100000000002,0.2407,5.8638000000000003,11.866239999999999,1.7423599999999999,6.8943500000000002,3.8460200000000002,1.4440200000000001,13.245340000000001,1.6431,6.7044199999999998,8.7279999999999998,5.3336300000000003,21.50872,36.641489999999997,0.92779999999999996,4.6781699999999997,0.73928000000000005,1.4098999999999999,4.0724499999999999,6.4954299999999998,1.2276800000000001,11.54792,4.4456600000000002,0.80913999999999997,3.0909300000000002,12.746880000000001,5.8070399999999998,1.1928099999999999,7.1743600000000001,7.1178499999999998,2.2556400000000001,7.1840999999999999,0.84518000000000004,3.4798499999999999,1.0596099999999999,15.514609999999999,0.094969999999999999,4.2947199999999999,0.22222,1.37018,1.1040099999999999,12.34191,0.84967999999999999,4.3163400000000003,13.101839999999999,44.463970000000003,0.69606000000000001,14.823729999999999,0,14.95369,6.9039700000000002,3.69841,7.7348100000000004,4.1077199999999996,2.9365399999999999,4.4202000000000004,0.68888000000000005,4.4136699999999998,27.474399999999999,0.45517000000000002,2.20356,1.48342,2.7865500000000001,6.2315800000000001,2.8753199999999999,1.23648,1.6257999999999999,9.6636299999999995,4.7662100000000001,1.11896,3.0692599999999999,3.66005,8.6980599999999999,7.9664900000000003,7.1145899999999997,3.8717700000000002,8.6512799999999999,3.83738,10.93933,3.3023600000000002,0.51963000000000004,5.0729699999999998,1.1001099999999999,4.0723000000000003,3.38028,4.4125100000000002,0.87355000000000005,7.5904699999999998,1.0471200000000001,10.931649999999999,5.4980000000000002,1.62161,10.45251,5.7494699999999996,1.28102,7.7843499999999999,4.6604799999999997,3.24519,1.6922999999999999,6.0433300000000001,0.36848999999999998,8.0260999999999996,0.36332999999999999,3.39859,1.16279,4.4799300000000004,7.0265000000000004,0.33482000000000001,4.3068799999999996,11.74967,5.4562200000000001,7.1428599999999998,0.20963999999999999,6.2372399999999999,5.4515399999999996,0.33002999999999999,0.93896999999999997,18.52486,10.148849999999999,4.8194800000000004,1.4870699999999999,14.693149999999999,3.29257,1.1570199999999999,8.3230900000000005,0.46055000000000001,10.40334,10.135910000000001,0.49330000000000002,1.5550200000000001,4.0585199999999997,0.37729000000000001,33.007330000000003,2.9321299999999999,0.53283000000000003,0.81788000000000005,0.65788999999999997,29.837350000000001,1.4173,9.0761699999999994,26.002770000000002,8.2307500000000005,4.6445400000000001,1.07385,2.9465499999999998,0.50163999999999997,1.91818,26.949449999999999,1.1797599999999999,1.0976900000000001,6.0891099999999998,0.70762999999999998,7.4188000000000001,3.7050399999999999,0.74009000000000003,3.5624699999999998,3.4503499999999998,6.2111799999999997,0.86141999999999996,9.9355600000000006,2.5373100000000002,1.06054,4.0801999999999996,2.1563300000000001,6.1399100000000004,5.1889200000000004,1.135,7.8049600000000003,3.73075,5.8910200000000001,9.7055600000000002,18.63222,16.230370000000001,8.6193299999999997,11.334350000000001,46.598889999999997,0.73402000000000001,7.2593500000000004,5.8545499999999997,1.4359200000000001,4.3227700000000002,2.1126800000000001,15.53398,1.16086,5.0768599999999999,0.89088000000000001,8.5784199999999995,4.1605100000000004,6.5142199999999999,1.2244900000000001,14.867900000000001,12.46902,6.9655199999999997,11.142289999999999,9.7540800000000001,0.056849999999999998,8.71373,20.38383,9.3012999999999995,14.74006,4.4817900000000002,4.9794,2.9131100000000001,3.9369399999999999,0.70848,0.36630000000000001,13.361140000000001,10.52632,18.05978,0.89095999999999997,8.6415199999999999,0.74534999999999996,9.7355800000000006,4.0642500000000004,5.5492499999999998,1.3698600000000001,28.637060000000002,0.86714000000000002,16.652460000000001,4.3544799999999997,4.6743800000000002,3.59491,9.7699300000000004,0.82133,4.8444700000000003,3.8711500000000001,0.71941999999999995,7.5125299999999999,0.96140999999999999,7.4275399999999996,4.3158500000000002,2.3789099999999999,1.20716,4.7789999999999999,2.9791500000000002,6.8090799999999998,5.6024200000000004,9.6472999999999995,2.5073699999999999,3.1057899999999998,1.8309299999999999,3.90977,4.9991599999999998,2.9437600000000002,0,0.65203,0.53180000000000005,6.07796,0.3448,2.4673699999999998,1.9306000000000001,2.1381199999999998,19.262979999999999,4.8717899999999998,2.72919,0.93596000000000001,7.7160500000000001,0.31968999999999997,1.5081199999999999,5.3289200000000001,3.3960400000000002,0.47483999999999998,2.3381599999999998,5.5390800000000002,2.8958699999999999,7.0491799999999998,1.13375,7.6480499999999996,3.8191700000000002,3.2866900000000001,12.329129999999999,6.55436,6.7414899999999998,0.09844,0.87936000000000003,7.4135099999999996,6.0240999999999998,6.1011300000000004,3.22533,4.0376899999999996,2.00136,12.43469,6.8334700000000002,0.94481000000000004,4.12059,9.4171800000000001,13.328279999999999,2.2141500000000001,11.923080000000001,2.1698599999999999,2.8861400000000001,1.16153,7.3525900000000002,1.1836899999999999,9.8870100000000001,1.18407,3.0821900000000002,7.4107500000000002,1.34762,6.0201500000000001,2.3746700000000001,4.6966700000000001,10.2155,7.5700200000000004,6.7135100000000003,7.0198700000000001,4.7103400000000004,16.804729999999999,0.39624999999999999,1.4578899999999999,4.5528500000000003,8.6538500000000003,3.9682499999999998,0.35344999999999999,0.59031,3.3486500000000001,57.608699999999999,0.79203000000000001,0.80227000000000004,9.4936699999999998,3.4782600000000001,3.3719000000000001,0.86226999999999998,2.50678,8.3055099999999999,3.7104599999999999,6.2962999999999996,3.6809799999999999,5.3608200000000004,7.6036299999999999,10.996560000000001,4.1312300000000004,7.6074900000000003,0.44308999999999998,1.3923399999999999,3.7523599999999999,13.11697,1.2574399999999999,4.7058799999999996,0.57062999999999997,6.5954300000000003,8.6235800000000005,14.66314,15.820539999999999,1.08982,3.6866400000000001,0.39007999999999998,4.08026,12.806749999999999,10.97167,2.7838799999999999,8.3278599999999994,12.397309999999999,7.8722899999999996,3.9474499999999999,6.7272699999999999,17.517240000000001,0.94255999999999995,1.0813200000000001,14.44759,1.12585,8.8533399999999993,0,10.45716,3.5058400000000001,0.72521999999999998,7.3274600000000003,0.31505,4.7107700000000001,0.87916000000000005,0.83011999999999997,7.2750599999999999,2.1022500000000002,2.9288699999999999,2.7287300000000001,0.37911,2.3439899999999998,2.3300700000000001,0.43093999999999999,0.52463000000000004,1.62602,5.9114500000000003,0.36162,3.0129999999999999,1.3239300000000001,3.9806499999999998,0.33627000000000001,4.4166999999999996,0.15018000000000001,1.1902699999999999,0,6.9358300000000002,1.44635,7.8004699999999998,1.56515,5.68337,12.33046,5.51396,12.438090000000001,3.8492799999999998,7.69231,0.35047,6.47248,3.5257000000000001,1.2868599999999999,12.070970000000001,0.83187999999999995,3.6652999999999998,1.02515,7.67936,5.8053499999999998,5.53139,2.9468000000000001,4.07165,4.0144200000000003,5.0580299999999996,1.3660300000000001,1.92926,5.6501000000000001,2.0408200000000001,0.69123999999999997,7.2447100000000004,2.1380599999999998,2.1768399999999999,1.09267,10.174659999999999,1.5061899999999999,8.2504000000000008,0.47770000000000001,15.122199999999999,0.48905999999999999,3.3606099999999999,16.2531,8.2582699999999996,8.9126600000000007,0.81791000000000003,2.8197299999999998,7.7625599999999997,22.00647,1.2562199999999999,5.7747799999999998,0.64620999999999995,11.148569999999999,3.8004799999999999,6.0046200000000001,4.6896599999999999,2.4041399999999999,8.9719499999999996,0.35682999999999998,11,5.4359799999999998,8.6343499999999995,4.0663,8.4409399999999994,4.6012300000000002,11.874180000000001,13.66025,1.8032699999999999,0.97826999999999997,11.730600000000001,0.81982999999999995,1.40449,6.5992699999999997,0,4.6164199999999997,6.8186900000000001,3.2940399999999999,5.9160700000000004,6.5524800000000001,0.77641000000000004,3.9904500000000001,15.19239,1.0002500000000001,0.87268999999999997,9.5416799999999995,4.8220400000000003,0.66732000000000002,2.9337800000000001,11.068569999999999,11.33478,1.13958,7.2734800000000002,9.0116300000000003,6.7605500000000003,2.8869899999999999,0.70345000000000002,0.90608999999999995,5.59497,4.67842],"y":[2.59585,36.666670000000003,2.0399500000000002,26.185120000000001,11.85862,1.10998,11.962429999999999,3.4168599999999998,0.88997999999999999,7.6702000000000004,7.6241099999999999,1.5861499999999999,6.5104899999999999,1.746,4.8791399999999996,24.475960000000001,13.170730000000001,10.48387,1.03935,6.8521099999999997,9.5935799999999993,1.4631000000000001,7.8654700000000002,4.9482100000000004,0,19.09263,1.35728,6.7086399999999999,6.12765,2.1209799999999999,19.271409999999999,1.58958,12.83386,2.4569000000000001,11.009169999999999,7.4850599999999998,4.0703800000000001,1.5418499999999999,5.5632299999999999,0.18082999999999999,1.14852,9.0830800000000007,10.52436,11.56559,0.81699999999999995,5.1315600000000003,3.0967699999999998,5.3697499999999998,0.69062000000000001,3.8349899999999999,0.98360999999999998,1.3715200000000001,7.6117499999999998,0,11.10694,13.604290000000001,6.8399999999999999,0.77625999999999995,5.3128099999999998,7.9708300000000003,9.9300700000000006,1.3322700000000001,0.88743000000000005,4.9364600000000003,5.0027200000000001,0.73746,13.26643,13.48964,3.4810099999999999,1.70563,10.400219999999999,10.32339,2.0211000000000001,0,1.0863400000000001,5.5918999999999999,8.3962199999999996,16.074300000000001,0.90349999999999997,1.9680200000000001,1.9776400000000001,10.733779999999999,0,0.63988999999999996,6.8709699999999998,0.87531999999999999,19.710139999999999,22.90598,14.653499999999999,7.5605700000000002,1.60181,6.6013599999999997,10.46025,12.826890000000001,7.6315799999999996,8.6609700000000007,2.1375600000000001,4.4035299999999999,7.06806,24.39716,5.3722099999999999,18.595040000000001,1.69685,6.5144700000000002,12.68473,1.3733900000000001,4.8608000000000002,0.52625,9.1817299999999999,11.313129999999999,2.04244,9.6972100000000001,5.4535999999999998,1.86633,23.486660000000001,2.2805800000000001,7.9863900000000001,12.84538,8.0514500000000009,36.177819999999997,75.276589999999999,1.2258199999999999,9.1662800000000004,0.96372000000000002,1.5755600000000001,7.8273999999999999,8.6745400000000004,1.27752,18.036239999999999,7.4313900000000004,1.1347799999999999,5.3787700000000003,23.481490000000001,10.218299999999999,1.8921699999999999,14.68707,6.9351200000000004,5.5288500000000003,10.77252,0.95082999999999995,8.0341900000000006,1.80738,23.80697,2.05993,6.2900200000000002,2.41228,1.8960699999999999,2.09911,20.184709999999999,1.0330900000000001,6.7866600000000004,19.946059999999999,33.102249999999998,0.87912000000000001,22.74877,0,21.84498,10.48127,4.9296800000000003,5.2980099999999997,7.1171699999999998,4.9600099999999996,5.9422899999999998,0.85509999999999997,6.8288099999999998,18.541029999999999,0.73933000000000004,3.4224299999999999,3.9643999999999999,4.5203199999999999,7.8010700000000002,3.8408799999999998,2.2069000000000001,2.1031200000000001,15.579269999999999,6.0237499999999997,1.64727,4.7537200000000004,5.2130000000000001,13.86477,13.0566,14.289020000000001,7.8522999999999996,9.5027899999999992,5.97112,13.842980000000001,5.78294,1.09327,8.1577800000000007,1.84615,6.0028499999999996,2.12202,6.6635499999999999,1.4076299999999999,13.49141,2.4813900000000002,16.846550000000001,8.4313400000000005,2.2069999999999999,13.936210000000001,9.2896400000000003,1.4255199999999999,11.389570000000001,6.8184500000000003,5.3019100000000003,2.8004899999999999,4.5248900000000001,0.68252999999999997,11.215009999999999,0.63212999999999997,6.2601100000000001,0.25574999999999998,6.9148899999999998,10.55157,0.85929,6.3936700000000002,20.937069999999999,9.5496599999999994,11.776579999999999,0.78430999999999995,10.87585,8.9744499999999992,0.31056,1.2060900000000001,24.21679,13.62055,6.4459499999999998,2.2401399999999998,23.415649999999999,4.51389,1.69231,21.963999999999999,0.78142,17.929690000000001,18.806039999999999,0.61363999999999996,3.7800699999999998,7.0332400000000002,0.46332000000000001,39.16084,5.4918399999999998,0.73253000000000001,0.95165999999999995,0.78974999999999995,48.093640000000001,2.21353,13.151619999999999,21.57124,12.817130000000001,7.88896,1.5751299999999999,5.2963699999999996,0.79571999999999998,3.90137,37.944450000000003,1.66326,3.0434800000000002,10.0322,1.07084,11.290559999999999,5.6050700000000004,1.55986,5.4746199999999998,5.7239500000000003,23.568280000000001,1.37683,16.994499999999999,8.6005800000000008,0.94791999999999998,6.8870100000000001,4.26065,8.6669,9.20871,1.6974199999999999,13.7491,4.9880199999999997,6.6104099999999999,16.998950000000001,27.74756,8.6666699999999999,9.14405,16.352730000000001,60.041029999999999,0.91586999999999996,10.85815,9.2016600000000004,2.6204200000000002,6.3492100000000002,2.6548699999999998,24.601369999999999,1.25196,9.2715599999999991,1.31518,15.07273,7.1173200000000003,10.33869,5.1470599999999997,32.510350000000003,21.99766,2.1724399999999999,22.653379999999999,18.15212,0.87314000000000003,18.991510000000002,28.769780000000001,19.475739999999998,21.160209999999999,6.8161399999999999,7.5043499999999996,5.3135500000000002,7.6753999999999998,1.33351,3.1468500000000001,27.411090000000002,15.862069999999999,26.581340000000001,1.1048,17.570869999999999,1.0509299999999999,10.075279999999999,5.28294,8.3383900000000004,0.84387999999999996,26.923079999999999,1.0587800000000001,34.324159999999999,6.6217699999999997,9.9891000000000005,5.2721900000000002,12.28228,1.5649,8.8496000000000006,8.4694500000000001,0.46511999999999998,11.546810000000001,1.5487299999999999,9.0598299999999998,6.4468199999999998,4.7133700000000003,1.64703,8.9830900000000007,4.7862499999999999,6.58385,8.2186299999999992,11.854100000000001,3.89703,5.4530799999999999,2.9110800000000001,5.4676299999999998,10.67022,4.6993299999999998,1.42276,0.98714000000000002,0.93144000000000005,9.3900100000000002,0.50778999999999996,2.8162099999999999,2.6143299999999998,3.31412,18.770230000000002,10.051550000000001,5.6515000000000004,1.14025,12.966419999999999,0.61033999999999999,3.6144599999999998,7.8584800000000001,4.8604099999999999,0.93903999999999999,4.3714899999999997,8.7703299999999995,6.1809799999999999,9.9056599999999992,2.4862899999999999,9.2139500000000005,5.5967500000000001,5.13565,14.07475,7.51098,10.55273,0.3513,1.29758,15.184049999999999,4.7169800000000004,16.89076,8.0413499999999996,8.1351700000000005,3.8358099999999999,14.89362,11.99333,1.61206,12.077780000000001,17.030239999999999,17.555879999999998,3.1333000000000002,7.1947700000000001,3.3176899999999998,4.0005899999999999,1.19425,11.380570000000001,1.8045800000000001,14.621409999999999,1.77932,6.13497,10.41939,1.8796299999999999,10.61744,1.83246,4.0600199999999997,16.553930000000001,12.30649,10.04949,10.730040000000001,5.8507199999999999,23.287669999999999,0.60092000000000001,1.80877,7.34375,10.53299,5.0458699999999999,0.82172000000000001,0.64834000000000003,5.8377499999999998,64.974620000000002,0.74407999999999996,1.0899300000000001,20.305160000000001,1.1235999999999999,5.36822,1.03915,4.5756800000000002,11.896929999999999,5.2509699999999997,11.209960000000001,5.2154600000000002,9.1286299999999994,12.917020000000001,13.18083,8.0378299999999996,12.536199999999999,0.87266999999999995,2.1156100000000002,5.3646900000000004,12.452830000000001,3.1883499999999998,8.8815799999999996,0.88451000000000002,10.052,11.522489999999999,8.2441800000000001,38.990830000000003,0.89485000000000003,6.1247199999999999,0.83665999999999996,4.3999100000000002,12.86425,17.832080000000001,3.1982900000000001,13.35652,14.16611,10.06427,5.1943099999999998,13.45133,5.1085599999999998,0.96611999999999998,1.59622,22.513809999999999,1.9675,10.230980000000001,0,14.97932,7.1310099999999998,0.85150999999999999,9.9870599999999996,0.95645999999999998,9.0664300000000004,1.0101899999999999,0.86385000000000001,9.7366399999999995,3.3271700000000002,6.6666699999999999,5.6835599999999999,0.30740000000000001,3.0535399999999999,3.6934900000000002,0.74177999999999999,0.77251999999999998,4.1666699999999999,9.7201299999999993,0.76029000000000002,4.8286800000000003,1.5974999999999999,4.9058799999999998,0.47306999999999999,7.2966899999999999,0.33135999999999999,1.62937,0,8.2155000000000005,1.4528799999999999,11.3925,2.0180899999999999,8.78627,15.77726,7.1338400000000002,20.36965,6.2300899999999997,8.9510500000000004,0.61421999999999999,9.4788099999999993,6.5170300000000001,1.79901,14.65143,1.2817499999999999,6.2225999999999999,1.3396300000000001,10.94631,9.7490900000000007,9.8008600000000001,4.9829600000000003,6.2222400000000002,6.9121100000000002,7.8936799999999998,1.8678600000000001,1.69492,10.445959999999999,5.0505100000000001,1.7167399999999999,10.37204,3.8168600000000001,3.0029599999999999,1.3464400000000001,15.763640000000001,1.64069,9.9072099999999992,0.62917000000000001,17.881180000000001,0.89973999999999998,5.3839199999999998,28.299779999999998,14.181839999999999,26.094280000000001,0.81081000000000003,6.7115999999999998,20.535710000000002,23.888470000000002,1.55626,11.15807,1.0631200000000001,33.725270000000002,5.2272699999999999,9.0407899999999994,7.0418900000000004,3.58188,14.080019999999999,0.49836999999999998,27.462689999999998,10.7104,13.23991,6.2366599999999996,10.649749999999999,6.3202199999999999,21.04616,17.79935,2.8893300000000002,1.3294999999999999,20.43384,1.01569,0.55866000000000005,9.4696099999999994,0,8.0373199999999994,15.031510000000001,6.93919,10.638730000000001,12.69819,1.19347,6.5994099999999998,31.900189999999998,1.07881,1.51396,16.846080000000001,6.2298600000000004,1.1185700000000001,2.8089900000000001,16.60324,16.078340000000001,1.7403999999999999,14.60904,7.9088500000000002,11.988110000000001,4.2239300000000002,1.00176,1.20113,9.7143599999999992,8.0822599999999998],"text":["Southampton","Reading","Worcestershire","Telford and Wrekin","Telford and Wrekin","Bedford","Cambridgeshire","Thurrock","Thurrock","Norfolk","Suffolk","Buckinghamshire","Buckinghamshire","Milton Keynes","Brighton and Hove","Hampshire","Southampton","Slough","Slough","Slough","Kent","Kent","Medway","Surrey","Isles of Scilly","Bath and North East Somerset","North Somerset","Dorset","Swindon","Torbay","Torbay","Cornwall","Cornwall","Somerset","Camden","Camden","Camden","Hackney","Hammersmith and Fulham","Islington","Westminster","Westminster","Haringey","Bexley","Bromley","Croydon","Ealing","Harrow","Merton","Redbridge","Richmond upon Thames","Sutton","Sutton","Darlington","Darlington","St. Helens","St. Helens","Bury","Manchester","Manchester","Tameside","Wigan","Halton","Halton","Cheshire West and Chester","Cumbria","Cumbria","Barnsley","Rotherham","Sheffield","Sheffield","Bradford","Calderdale","Kirklees","Leeds","East Riding of Yorkshire","North East Lincolnshire","York","Derby","Leicestershire","Leicester","Leicester","Rutland","Rutland","Rutland","Nottinghamshire","Nottingham","Coventry","Coventry","Coventry","Dudley","Dudley","Sandwell","Stoke-on-Trent","Herefordshire, County of","Worcestershire","Warwickshire","Luton","Central Bedfordshire","Peterborough","Southend-on-Sea","Brighton and Hove","Hampshire","Portsmouth","Bracknell Forest","Windsor and Maidenhead","Windsor and Maidenhead","Wokingham","Kent","Medway","Isle of Wight","Surrey","West Sussex","Bath and North East Somerset","Bristol, City of","South Gloucestershire","Gateshead","Newcastle upon Tyne","Sunderland","Hartlepool","Middlesbrough","County Durham","Northumberland","Liverpool","St. Helens","Sefton","Wirral","Bolton","Bolton","Bury","Manchester","Oldham","Rochdale","Rochdale","Tameside","Tameside","Wigan","Halton","Warrington","Blackburn with Darwen","Blackpool","Blackpool","Blackpool","Cheshire West and Chester","Cumbria","Barnsley","Barnsley","Doncaster","Doncaster","Rotherham","Wiltshire","Plymouth","Torbay","Cornwall","Somerset","City of London","Islington","Kensington and Chelsea","Southwark","Tower Hamlets","Wandsworth","Haringey","Newham","Greenwich","Barnet","Bexley","Brent","Brent","Croydon","Havering","Hillingdon","Hillingdon","Luton","Cambridgeshire","Peterborough","Essex","Hertfordshire","Hertfordshire","Norfolk","Norfolk","Suffolk","Milton Keynes","Milton Keynes","Brighton and Hove","Hampshire","Portsmouth","Southampton","Bracknell Forest","Windsor and Maidenhead","West Berkshire","West Berkshire","Isle of Wight","Oxfordshire","Surrey","Bristol, City of","North Somerset","South Gloucestershire","South Gloucestershire","Wiltshire","Swindon","Devon","Plymouth","Somerset","Hackney","Tower Hamlets","Tower Hamlets","Wandsworth","Haringey","Greenwich","Barnet","Bexley","Brent","Brent","Croydon","Ealing","Ealing","Rotherham","Rotherham","Sheffield","Calderdale","Calderdale","Kingston upon Hull, City of","North Lincolnshire","North Lincolnshire","Redcar and Cleveland","County Durham","County Durham","Darlington","Darlington","Northumberland","Knowsley","Knowsley","Sefton","Bury","Manchester","Oldham","Salford","Stockport","Trafford","Warrington","Blackburn with Darwen","Cheshire East","Cheshire West and Chester","Cumbria","Doncaster","Kirklees","Wakefield","Kingston upon Hull, City of","North Yorkshire","York","Derbyshire","Leicestershire","Leicester","Rutland","Nottingham","Birmingham","Dudley","Sandwell","Walsall","Wolverhampton","Wolverhampton","Herefordshire, County of","Herefordshire, County of","Worcestershire","Shropshire","Shropshire","Shropshire","Telford and Wrekin","Telford and Wrekin","Warwickshire","Bedford","Central Bedfordshire","Peterborough","Essex","Essex","Thurrock","Gateshead","Newcastle upon Tyne","Newcastle upon Tyne","South Tyneside","South Tyneside","Sunderland","Redcar and Cleveland","Stockton-on-Tees","Stockton-on-Tees","Enfield","Harrow","Hillingdon","Kingston upon Thames","Merton","Redbridge","Waltham Forest","Lancashire","Lancashire","Lancashire","Blackpool","Cheshire East","Barnsley","Sheffield","Bradford","Bradford","Kirklees","Leeds","Leeds","Wakefield","North East Lincolnshire","North Lincolnshire","Derbyshire","Nottinghamshire","Lincolnshire","Lincolnshire","Sunderland","Hartlepool","Middlesbrough","Redcar and Cleveland","Stockton-on-Tees","Northumberland","Northumberland","Knowsley","Liverpool","Wirral","Bolton","Bury","Rochdale","Stockport","Tameside","Wigan","Halton","Warrington","Lancashire","Bradford","Kirklees","Leeds","East Riding of Yorkshire","East Riding of Yorkshire","North East Lincolnshire","North Yorkshire","North Yorkshire","Leicester","Nottingham","Birmingham","Sandwell","Walsall","Walsall","Wolverhampton","Staffordshire","Barking and Dagenham","Barking and Dagenham","Barnet","Bromley","Enfield","Harrow","Havering","Hounslow","Hounslow","Kingston upon Thames","Kingston upon Thames","Merton","Richmond upon Thames","Sutton","Waltham Forest","Bromley","Croydon","Enfield","Harrow","Hounslow","Richmond upon Thames","Sutton","Waltham Forest","Waltham Forest","East Sussex","Bracknell Forest","West Berkshire","Reading","Reading","Reading","Kent","Isle of Wight","Isle of Wight","North Tyneside","Hartlepool","Redcar and Cleveland","Stockton-on-Tees","County Durham","Liverpool","Liverpool","Sefton","Sefton","Bolton","Oldham","Rochdale","Salford","Stockport","Hertfordshire","Norfolk","Suffolk","Suffolk","Buckinghamshire","Brighton and Hove","Hampshire","Portsmouth","Wokingham","Wokingham","West Sussex","West Sussex","Bristol, City of","Bristol, City of","Dorset","Bournemouth, Christchurch and Poole","Bournemouth, Christchurch and Poole","Wiltshire","Plymouth","Torbay","Gloucestershire","Somerset","Hackney","Islington","Lambeth","Lewisham","Southwark","Tower Hamlets","Wandsworth","Westminster","Newham","Barking and Dagenham","Bexley","Bromley","Kensington and Chelsea","Kensington and Chelsea","Lambeth","Lambeth","Lewisham","Lewisham","Greenwich","Greenwich","Barking and Dagenham","Staffordshire","Stoke-on-Trent","Warwickshire","Warwickshire","Luton","Central Bedfordshire","Central Bedfordshire","Cambridgeshire","Peterborough","Southend-on-Sea","Southend-on-Sea","Southend-on-Sea","Thurrock","Buckinghamshire","Milton Keynes","Newcastle upon Tyne","North Tyneside","South Tyneside","South Tyneside","East Sussex","East Sussex","Oxfordshire","Oxfordshire","Bath and North East Somerset","North Somerset","North Somerset","South Gloucestershire","Swindon","Swindon","Devon","Plymouth","Gloucestershire","Gloucestershire","City of London","Hackney","Hammersmith and Fulham","Hammersmith and Fulham","Hammersmith and Fulham","Kensington and Chelsea","Lambeth","Lewisham","Southwark","Southwark","Wandsworth","Westminster","Haringey","Newham","Newham","Barnet","Ealing","Enfield","Havering","Havering","Hillingdon","Hounslow","Kingston upon Thames","Merton","Redbridge","Redbridge","Richmond upon Thames","West Sussex","Isles of Scilly","Bath and North East Somerset","Dorset","Dorset","Bournemouth, Christchurch and Poole","Bournemouth, Christchurch and Poole","Wiltshire","Devon","Devon","Cornwall","Gloucestershire","Camden","Islington","Birmingham","Coventry","Dudley","Solihull","Solihull","Stoke-on-Trent","Herefordshire, County of","Luton","Bedford","Bedford","Cambridgeshire","Essex","Hertfordshire","East Sussex","Portsmouth","Southampton","Bracknell Forest","Windsor and Maidenhead","West Berkshire","Slough","Wokingham","Medway","Medway","Oxfordshire","Surrey","Gateshead","Gateshead","North Tyneside","North Tyneside","Sunderland","Hartlepool","Middlesbrough","Middlesbrough","Knowsley","St. Helens","Wirral","Wirral","Oldham","Salford","Salford","Stockport","Trafford","Trafford","Trafford","Wigan","Warrington","Blackburn with Darwen","Blackburn with Darwen","Cheshire East","Cheshire East","Cheshire West and Chester","Doncaster","Calderdale","Wakefield","Wakefield","Kingston upon Hull, City of","Kingston upon Hull, City of","East Riding of Yorkshire","North East Lincolnshire","North Lincolnshire","York","Derbyshire","Derby","Derby","Leicestershire","Birmingham","Sandwell","Staffordshire","Stoke-on-Trent","North Yorkshire","York","Derbyshire","Derby","Leicestershire","Nottinghamshire","Nottinghamshire","Nottingham","Lincolnshire","Lincolnshire","Solihull","Solihull","Walsall","Wolverhampton","Staffordshire","Worcestershire","Shropshire"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"mode":"markers","transforms":[{"type":"filter","target":["State-funded primary","Special","State-funded primary","State-funded secondary","Total","State-funded primary","State-funded secondary","Special","State-funded primary","Total","Total","State-funded primary","State-funded secondary","State-funded primary","Total","Special","Special","Special","State-funded primary","State-funded secondary","Special","State-funded primary","Total","Total","Total","Special","State-funded primary","Total","Total","State-funded primary","State-funded secondary","State-funded primary","State-funded secondary","State-funded primary","Special","State-funded secondary","Total","Special","Total","Special","State-funded primary","State-funded secondary","State-funded secondary","State-funded secondary","State-funded primary","Total","Total","State-funded secondary","State-funded primary","Total","Special","State-funded primary","State-funded secondary","Special","Total","State-funded secondary","Total","State-funded primary","Special","Total","Special","State-funded primary","State-funded primary","Total","Total","Special","State-funded secondary","Total","Special","State-funded primary","Total","Total","State-funded primary","Special","State-funded primary","Total","Total","State-funded secondary","State-funded primary","Special","Special","State-funded secondary","Special","State-funded primary","State-funded secondary","State-funded primary","Special","Special","State-funded secondary","Total","State-funded primary","Total","Special","Total","Special","Special","State-funded primary","Total","Special","Special","Total","Special","State-funded primary","Total","State-funded secondary","State-funded primary","Total","State-funded primary","State-funded secondary","Special","State-funded primary","State-funded secondary","Total","State-funded primary","State-funded secondary","State-funded primary","Total","Total","Total","State-funded secondary","State-funded secondary","State-funded primary","Total","State-funded primary","State-funded primary","State-funded secondary","State-funded secondary","State-funded primary","State-funded secondary","Total","State-funded primary","Total","State-funded secondary","Total","State-funded primary","Total","Special","Special","State-funded secondary","State-funded primary","Special","State-funded primary","State-funded secondary","Special","Total","Special","State-funded primary","State-funded primary","Total","State-funded primary","Total","State-funded secondary","Special","Special","State-funded secondary","State-funded primary","State-funded secondary","State-funded secondary","Total","Special","State-funded secondary","Total","State-funded secondary","State-funded primary","State-funded secondary","Special","State-funded primary","Total","Special","Total","State-funded secondary","Total","Special","State-funded primary","State-funded secondary","Special","State-funded primary","Total","Special","State-funded secondary","State-funded secondary","State-funded secondary","Total","State-funded secondary","Total","State-funded secondary","Total","State-funded primary","State-funded secondary","State-funded primary","Total","Special","Total","State-funded primary","Special","Special","State-funded secondary","Total","State-funded primary","State-funded secondary","Total","State-funded primary","Total","Total","State-funded secondary","Total","Special","State-funded primary","State-funded secondary","State-funded primary","Total","Special","State-funded secondary","State-funded secondary","Special","State-funded secondary","State-funded secondary","Total","Special","Special","Total","Total","Special","State-funded primary","Total","State-funded secondary","Total","State-funded primary","State-funded secondary","Special","Special","State-funded secondary","State-funded primary","State-funded secondary","State-funded secondary","State-funded primary","Special","Total","State-funded primary","Special","Total","State-funded primary","State-funded primary","State-funded primary","State-funded secondary","State-funded primary","Total","Special","State-funded secondary","Total","State-funded primary","Total","State-funded primary","Total","State-funded secondary","State-funded secondary","State-funded primary","Special","State-funded secondary","State-funded primary","State-funded secondary","Total","State-funded primary","Total","Total","Special","State-funded primary","State-funded secondary","Special","State-funded primary","Total","Special","State-funded secondary","Total","State-funded primary","State-funded secondary","Total","Special","Special","State-funded secondary","Special","State-funded secondary","State-funded secondary","State-funded secondary","State-funded primary","Total","State-funded secondary","Total","Special","Special","Special","Special","State-funded secondary","State-funded primary","State-funded secondary","Total","Total","Special","State-funded secondary","State-funded secondary","Special","State-funded secondary","State-funded secondary","Special","State-funded secondary","State-funded secondary","State-funded secondary","State-funded secondary","Special","Total","Special","Total","State-funded primary","Special","Total","Special","State-funded secondary","State-funded primary","State-funded secondary","State-funded primary","Special","Total","Total","Special","Special","State-funded primary","State-funded secondary","Total","State-funded secondary","Total","Special","State-funded primary","Total","Total","Special","State-funded secondary","State-funded primary","Special","Total","Total","State-funded primary","Special","State-funded primary","Special","Total","Special","State-funded secondary","Special","Special","State-funded secondary","Total","Special","State-funded secondary","Total","Special","State-funded primary","State-funded primary","State-funded secondary","State-funded primary","State-funded secondary","Total","Total","Special","Special","Total","State-funded primary","Special","State-funded primary","Special","State-funded secondary","Total","State-funded primary","Total","Special","Total","Total","Special","State-funded primary","State-funded secondary","Total","Total","State-funded secondary","Total","State-funded secondary","State-funded primary","State-funded primary","Special","Special","State-funded secondary","Total","Special","Total","Special","State-funded secondary","State-funded primary","Total","State-funded secondary","Special","State-funded primary","Special","State-funded primary","Total","State-funded primary","State-funded secondary","State-funded primary","Special","Total","Special","State-funded secondary","State-funded primary","Total","Special","Special","State-funded secondary","State-funded secondary","Total","Total","Total","Special","State-funded primary","State-funded primary","Special","Special","Special","State-funded primary","State-funded primary","Total","Special","State-funded primary","State-funded primary","Special","Special","Total","State-funded primary","Total","State-funded secondary","Total","Special","Total","Special","State-funded secondary","Special","Special","State-funded secondary","State-funded primary","State-funded primary","Total","Special","State-funded primary","Special","State-funded primary","State-funded secondary","State-funded secondary","Special","Special","State-funded primary","Special","State-funded primary","Total","Special","State-funded secondary","Special","State-funded secondary","State-funded secondary","State-funded secondary","Total","Special","Special","State-funded primary","State-funded primary","Special","State-funded primary","State-funded secondary","Total","State-funded secondary","Special","State-funded primary","State-funded secondary","State-funded primary","State-funded secondary","State-funded primary","State-funded primary","State-funded secondary","Total","Special","Special","State-funded primary","Total","Total","State-funded primary","State-funded primary","Special","State-funded secondary","State-funded primary","Total","Total","State-funded secondary","State-funded primary","State-funded secondary","State-funded primary","State-funded primary","State-funded secondary","Total","State-funded primary","State-funded secondary","State-funded primary","Total","Special","Special","State-funded secondary","Total","Special","State-funded primary","Total","State-funded primary","State-funded secondary","Total","State-funded primary","State-funded secondary","State-funded primary","Total","State-funded primary","State-funded secondary","State-funded secondary","State-funded secondary","Total","Total","Total","State-funded secondary","State-funded primary","Special","State-funded secondary","Special","Special","State-funded secondary","Total","State-funded secondary","State-funded primary","State-funded secondary","State-funded primary","Special","State-funded primary","State-funded secondary","State-funded primary","Total","Special","Total","Special","State-funded primary","Total","Special","Special","State-funded primary","Special","State-funded primary","State-funded secondary","Special","Special","State-funded secondary","Total","State-funded secondary","State-funded primary","Special","State-funded secondary","State-funded secondary","Total","State-funded secondary","Special","State-funded secondary","Special","State-funded primary","State-funded primary","State-funded secondary","State-funded primary","Special","Total","Special","Total","State-funded secondary","Total","State-funded secondary","Total","Total","State-funded secondary","State-funded primary","Total","State-funded secondary","State-funded primary","State-funded primary","State-funded secondary","Special","State-funded primary","Special","State-funded secondary","Total","State-funded primary","State-funded secondary","Special","State-funded secondary","Total","State-funded primary","State-funded primary","State-funded secondary","Total","Total","State-funded secondary","Special","State-funded primary"],"operation":"=","value":"State-funded primary"}],"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div id="tabset-1-3" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>You can do data downloads too, though whenever I include them it breaks the plotly formatting for some reason</p>
+<details>
+<summary>
+You can do details components too
+</summary>
+contents
+</details>
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
